@@ -9,7 +9,6 @@ use App\Api\Wheel;
 use App\Mother\ConnectionMother;
 use function strtotime;
 use Symfony\Component\HttpFoundation\RequestStack;
-use function var_dump;
 
 class ConnectionDataProvider implements CollectionDataProviderInterface, RestrictedDataProviderInterface
 {
@@ -23,9 +22,6 @@ class ConnectionDataProvider implements CollectionDataProviderInterface, Restric
     public function getCollection(string $resourceClass, string $operationName = null)
     {
         $request = $this->requestStack->getCurrentRequest();
-
-        $index = explode('\\', $resourceClass);
-        $index = strtolower(end($index));
 
         $filters = $request->query->all();
 

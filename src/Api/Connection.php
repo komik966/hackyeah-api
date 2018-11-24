@@ -42,6 +42,18 @@ class Connection
      */
     public $dateTime;
 
+    public $isWars;
+
+    public $isStrefaCiszy;
+
+    public $isPrzewozRowerow;
+
+    public $isDlaNiepelnosprawnych;
+
+    public $isOznaczonyBraillem;
+
+    public $isKlimatyzacja;
+
     public function __construct(int $id, Station $from, Station $to, DateTime $dateTime)
     {
         $this->id = $id;
