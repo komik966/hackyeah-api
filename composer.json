@@ -1,0 +1,30 @@
+{
+  "name": "konradmikucki/api",
+  "authors": [
+    {
+      "name": "Konrad Mikucki",
+      "email": "komik966@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {
+    "symfony/flex": "^1.1",
+    "api-platform/api-pack": "^1.1",
+    "symfony/yaml": "^4.1",
+    "php": "^7.2"
+  },
+  "scripts": {
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    }
+  },
+  "require-dev": {
+    "symfony/web-server-bundle": "^4.1",
+    "symfony/dotenv": "^4.1"
+  }
+}
