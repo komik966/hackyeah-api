@@ -4,18 +4,23 @@ namespace App\DataProvider;
 
 use ApiPlatform\Core\DataProvider\CollectionDataProviderInterface;
 use ApiPlatform\Core\DataProvider\RestrictedDataProviderInterface;
-use App\Api\Vehicle;
+use App\Api\Connection;
+use App\Api\Station;
 use App\Api\Wheel;
+use App\Mother\StationMother;
 
-class VehicleDataProvider implements CollectionDataProviderInterface, RestrictedDataProviderInterface
+class StationDataProvider implements CollectionDataProviderInterface, RestrictedDataProviderInterface
 {
     public function getCollection(string $resourceClass, string $operationName = null)
     {
-        yield new Vehicle(1, 'foo', [new Wheel(1), new Wheel(2)]);
+        StationMother::init();
+        yield StationMother::warszawa();
+        yield StationMother::krakow();
+        yield StationMother::poznan();
     }
 
     public function supports(string $resourceClass, string $operationName = null, array $context = []): bool
     {
-        return Vehicle::class === $resourceClass;
+        return Station::class === $resourceClass;
     }
 }

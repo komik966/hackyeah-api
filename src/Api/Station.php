@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ApiResource(normalizationContext={"groups"={"read"}})
  */
-class Vehicle
+class Station
 {
     /**
      * @ApiProperty(identifier=true)
@@ -26,14 +26,21 @@ class Vehicle
 
     /**
      * @Groups("read")
-     * @var Wheel[]
+     * @var float
      */
-    public $wheels;
+    public $latitude;
 
-    public function __construct(int $id, string $name, array $wheels)
+    /**
+     * @Groups("read")
+     * @var float
+     */
+    public $longitude;
+
+    public function __construct(int $id,string $name, float $latitude, float $longitude)
     {
         $this->id = $id;
+        $this->latitude = $latitude;
+        $this->longitude = $longitude;
         $this->name = $name;
-        $this->wheels = $wheels;
     }
 }
