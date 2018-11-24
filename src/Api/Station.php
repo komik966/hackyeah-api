@@ -36,6 +36,8 @@ class Station
      */
     public $longitude;
 
+
+
     public function __construct(int $id,string $name, float $latitude, float $longitude)
     {
         $this->id = $id;
